@@ -1,12 +1,29 @@
 package com.example.t2009m1java.entity;
 
 public class Account {
+    private int id;
     private String username;
     private String email;
     private String password;
     private String fullName;
     private String phone;
     private String birthday;
+
+    private int status;
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", status=" + status +
+                '}';
+    }
 
     public Account() {
     }
@@ -18,6 +35,35 @@ public class Account {
         this.fullName = fullName;
         this.phone = phone;
         this.birthday = birthday;
+    }
+
+    public Account(String username, String email, String password, String fullName, String phone, String birthday, int status) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.birthday = birthday;
+        this.status = status;
+    }
+
+    public Account(int id, String username, String email, String password, String fullName, String phone, String birthday, int status) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.birthday = birthday;
+        this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -66,5 +112,13 @@ public class Account {
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
