@@ -38,6 +38,15 @@
         <url-pattern>/create-category</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>com.example.t2009m1java.controller.ProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/create-product</url-pattern>
+    </servlet-mapping>
+
 <!--    <servlet>-->
 <!--        <servlet-name>DemoForm</servlet-name>-->
 <!--        <jsp-file>/admin/demo/form.jsp</jsp-file>-->

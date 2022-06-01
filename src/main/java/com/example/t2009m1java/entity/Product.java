@@ -4,6 +4,7 @@ import com.example.t2009m1java.entity.base.BaseEntity;
 import com.example.t2009m1java.entity.myenum.ProductStatus;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 public class Product extends BaseEntity {
     private int id;
@@ -90,6 +91,25 @@ public class Product extends BaseEntity {
 
     public void setStatus(ProductStatus status) {
         this.status = status;
+    }
+
+    private HashMap<String, String> errors = new HashMap<>();
+
+    public boolean isValid() {
+        checkValid();
+        return errors.size() == 0;
+    }
+
+    private void checkValid() {
+        if (name == null || name.length() == 0) {
+            errors.put("name", "Please enter product name.");
+        }
+        if (thumbnail == null || thumbnail.length() == 0) {
+            errors.put("thumbnail", "Please enter thumbnail.");
+        }
+        if (description == null || description.length() == 0) {
+            errors.put("description", "Please enter thumbnail.");
+        }
     }
 
 

@@ -56,7 +56,7 @@ public class Category extends BaseEntity {
 
     private void checkValid() {
         if (name == null || name.length() == 0) {
-            errors.put("username", "Please enter product name.");
+            errors.put("username", "Please enter category name.");
         }
     }
 

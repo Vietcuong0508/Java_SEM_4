@@ -9,7 +9,7 @@ import java.sql.SQLException;
  */
 public class ConnectionHelper {
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/t2009m1_hello_world";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/test";
     private static final String DATABASE_USERNAME = "root";
     private static final String DATABASE_PASSWORD = "";
 

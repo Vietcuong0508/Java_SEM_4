@@ -1,8 +1,7 @@
 package com.example.t2009m1java.controller;
 
-import com.example.t2009m1java.entity.Account;
-import com.example.t2009m1java.entity.Category;
-import com.example.t2009m1java.model.CategoryModel;
+import com.example.t2009m1java.entity.Product;
+import com.example.t2009m1java.model.ProductModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class CategoryServlet extends HttpServlet {
-    private CategoryModel categoryModel;
+public class ProductServlet extends HttpServlet {
+    private ProductModel productModel;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/admin/category/form.jsp").forward(req, resp);
+        req.getRequestDispatcher("/admin/products/form.jsp").forward(req, resp);
     }
 
     @Override
@@ -24,22 +23,30 @@ public class CategoryServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         // lấy giá trị từ form gửi lên.
         String name = req.getParameter("name");
+        String thumbnail = req.getParameter("thumbnail");
+        Double price = Double.valueOf(req.getParameter("price"));
+        int categoryId = Integer.parseInt(req.getParameter("categoryId"));
+        String description = req.getParameter("description");
         // Khởi tạo đối tượng account từ thông tin truyền lên.
-        Category category = Category.CategoryBuilder.aCategory()
+        Product product = Product.ProductBuilder.aProduct()
                 .withName(name)
+                .withThumbnail(thumbnail)
+                .withPrice(price)
+                .withCategoryId(categoryId)
+                .withDescription(description)
                 .build();
-        if(!category.isValid()){
+        if(!product.isValid()){
             // trả dữ liệu cũ về form
-            req.setAttribute("category", category);
+            req.setAttribute("product", product);
             // kèm theo thông tin lỗi
 //            req.setAttribute("errors", category.getErrors());
             // tất cả được trả về
-            req.getRequestDispatcher("/admin/category/form.jsp").forward(req, resp);
+            req.getRequestDispatcher("/admin/products/form.jsp").forward(req, resp);
             return;
         }
         // thực hiện save
-        categoryModel.save(category);
-        req.setAttribute("category", category);
+        productModel.save(product);
+        req.setAttribute("product", product);
         req.getRequestDispatcher("/user/register-success.jsp").forward(req, resp);
     }
 }
