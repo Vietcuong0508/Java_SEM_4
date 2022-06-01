@@ -1,6 +1,8 @@
 package com.example.t2009m1java.entity;
 
-public class Student {
+import com.example.t2009m1java.entity.base.BaseEntity;
+
+public class Student extends BaseEntity {
     private String rollNumber;
     private String fullName;
     private int status;

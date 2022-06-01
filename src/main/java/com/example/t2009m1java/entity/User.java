@@ -1,6 +1,8 @@
 package com.example.t2009m1java.entity;
 
-public class User {
+import com.example.t2009m1java.entity.base.BaseEntity;
+
+public class User extends BaseEntity {
     private int id;
     private String username;
     private String passwordHash;
