@@ -10,4 +10,11 @@
     <link rel="stylesheet" href="/admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="/admin/assets/css/app.css">
     <link rel="shortcut icon" href="/admin/assets/images/favicon.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="/admin/assets/vendors/choices.js/choices.min.css" />
+
+    <link rel="stylesheet" href="/admin/assets/vendors/simple-datatables/style.css">
+
+    <link rel="stylesheet" href="/admin/assets/vendors/quill/quill.bubble.css">
+    <link rel="stylesheet" href="/admin/assets/vendors/quill/quill.snow.css">
 </head>

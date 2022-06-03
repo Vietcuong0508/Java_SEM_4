@@ -1,11 +1,20 @@
 <%@ page import="java.util.HashMap" %>
-<%@ page import="com.example.t2009m1java.entity.Category" %><%
-    Category category = (Category) request.getAttribute("category");
-    if(category == null){
+<%@ page import="com.example.t2009m1java.entity.Category" %>
+<%
+    int action = 1;
+    String url = "/admin/categories/create";
+    String title = "Create new category";
+    action = (int) request.getAttribute("action");
+    if (action == 2) {
+        url = "/admin/categories/update";
+        title = "Update category";
+    }
+    Category category = (Category) request.getAttribute("categories");
+    if (category == null) {
         category = new Category();
     }
-    HashMap<String, String> errors = (HashMap<String, String>)request.getAttribute("errors");
-    if(errors == null){
+    HashMap<String, String> errors = (HashMap<String, String>) request.getAttribute("errors");
+    if (errors == null) {
         errors = new HashMap<>();
     }
 %>
@@ -25,13 +34,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-<%--                        <h3>Thể Loại</h3>--%>
+                        <h3><%=title%></h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class='breadcrumb-header'>
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Tạo mới</li>
+                                <li class="breadcrumb-item"><a href="/admin/categories/list">Category Management</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><%=title%></li>
                             </ol>
                         </nav>
                     </div>
@@ -39,7 +48,10 @@
 
             </div>
             <div class="col-md-12">
-                <form action="/create-category" method="post">
+                <form action="<%=url%>" method="post">
+                    <%if (action == 2) {%>
+                    <input type="hidden" name="id" value="<%=category.getId()%>">
+                    <%}%>
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Thể loại</h4>
@@ -48,17 +60,22 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group">
-                                    <label for="basicInput">Tên</label>
-                                    <input type="text" name="name" class="form-control" id="basicInput" placeholder="Nhập thể loại" value="<%=category.getName()%>">
+                                    <label for="basicInput">Name</label>
+                                    <input type="text" name="name" class="form-control" id="basicInput"
+                                           placeholder="Category" value="<%=category.getName()%>">
                                     <%
-                                        if(errors.containsKey("name")){
+                                        if (errors.containsKey("name")) {
                                     %>
                                     <span class="w3-text-red">* <%=errors.get("name")%></span>
                                     <%}%>
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-outline-success">Lưu</button>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="submit" value="Submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                <button type="reset" value="Reset" class="btn btn-light-secondary me-1 mb-1">Reset
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>

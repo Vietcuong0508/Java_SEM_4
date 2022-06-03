@@ -18,7 +18,7 @@ class MySqlCategoryModelTest {
     @Test
     void save() {
         Category category = new Category();
-        category.setName("Cuong");
+        category.setName("Kẹo");
         category.setStatus(CategoryStatus.ACTIVE);
         model.save(category);
     }

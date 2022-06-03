@@ -2,7 +2,6 @@ package com.example.t2009m1java.model;
 
 import com.example.t2009m1java.constant.SqlConstant;
 import com.example.t2009m1java.entity.Product;
-import com.example.t2009m1java.entity.Product;
 import com.example.t2009m1java.entity.myenum.ProductStatus;
 import com.example.t2009m1java.service.util.ConnectionHelper;
 
@@ -24,11 +23,12 @@ public class MySqlProductModel implements ProductModel {
             preparedStatement.setDouble(3, obj.getPrice());
             preparedStatement.setInt(4, obj.getCategoryId());
             preparedStatement.setString(5, obj.getDescription());
-            preparedStatement.setString(6, obj.getCreatedAt().toString());
-            preparedStatement.setString(7, obj.getUpdatedAt().toString());
-            preparedStatement.setInt(8, obj.getCreatedBy());
-            preparedStatement.setInt(9, obj.getUpdatedBy());
-            preparedStatement.setInt(10, obj.getStatus().getValue());
+            preparedStatement.setString(6, obj.getDetail());
+            preparedStatement.setString(7, obj.getCreatedAt().toString());
+            preparedStatement.setString(8, obj.getUpdatedAt().toString());
+            preparedStatement.setInt(9, obj.getCreatedBy());
+            preparedStatement.setInt(10, obj.getUpdatedBy());
+            preparedStatement.setInt(11, obj.getStatus().getValue());
             preparedStatement.execute();
             return true;
         } catch (Exception ex) {
@@ -49,9 +49,11 @@ public class MySqlProductModel implements ProductModel {
             preparedStatement.setDouble(3, updateObj.getPrice());
             preparedStatement.setInt(4, updateObj.getCategoryId());
             preparedStatement.setString(5, updateObj.getDescription());
-            preparedStatement.setString(6, updateObj.getUpdatedAt().toString());
-            preparedStatement.setInt(7, updateObj.getUpdatedBy());
-            preparedStatement.setInt(8, updateObj.getStatus().getValue());
+            preparedStatement.setString(6, updateObj.getDetail());
+            preparedStatement.setString(7, updateObj.getUpdatedAt().toString());
+            preparedStatement.setInt(8, updateObj.getUpdatedBy());
+            preparedStatement.setInt(9, updateObj.getStatus().getValue());
+            preparedStatement.setInt(10, id);
             preparedStatement.execute();
             return true;
         } catch (SQLException e) {
@@ -142,6 +144,7 @@ public class MySqlProductModel implements ProductModel {
             Double price = resultSet.getDouble(SqlConstant.PRODUCT_FIELD_PRICE);
             int categoryId = resultSet.getInt(SqlConstant.PRODUCT_FIELD_CATEGORY_ID);
             String description = resultSet.getString(SqlConstant.PRODUCT_FIELD_DESCRIPTION);
+            String detail = resultSet.getString(SqlConstant.PRODUCT_FIELD_DETAIL);
             int status = resultSet.getInt(SqlConstant.PRODUCT_FIELD_STATUS);
             LocalDateTime createdAt = resultSet.getTimestamp(SqlConstant.FIELD_CREATED_AT).toLocalDateTime();
             LocalDateTime updatedAt = resultSet.getTimestamp(SqlConstant.FIELD_UPDATED_AT).toLocalDateTime();
@@ -153,7 +156,8 @@ public class MySqlProductModel implements ProductModel {
             int createdBy = resultSet.getInt(SqlConstant.FIELD_CREATED_BY);
             int updatedBy = resultSet.getInt(SqlConstant.FIELD_UPDATED_BY);
             int deletedBy = resultSet.getInt(SqlConstant.FIELD_DELETED_BY);
-            Product Product = new Product(id, name, thumbnail, price, categoryId, description, ProductStatus.of(status));
+//            return Product.ProductBuilder.aProduct()
+            Product Product = new Product(id, name, thumbnail, price, categoryId, description, detail, ProductStatus.of(status));
             Product.setCreatedAt(createdAt);
             Product.setUpdatedAt(updatedAt);
             Product.setDeletedAt(deletedAt);

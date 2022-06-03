@@ -14,8 +14,8 @@ public class SqlConstant {
     public static final String CATEGORY_SELECT_ALL = "select * from categories where status = ?";
     public static final String CATEGORY_SELECT_BY_ID = "select * from categories where status = ? and id = ?";
 
-    public static final String PRODUCT_INSERT = "insert into products (name, thumbnail, price, categoryId, description, createdAt, updatedAt, createdBy, updatedBy, status) values (?,?,?,?,?,?,?,?,?,?)";
-    public static final String PRODUCT_UPDATE = "update products set name = ?, thumbnail = ?, price = ?, categoryId = ?, description = ?, updatedAt = ?, updatedBy = ?, status = ? where id = ?";
+    public static final String PRODUCT_INSERT = "insert into products (name, thumbnail, price, categoryId, description, detail, createdAt, updatedAt, createdBy, updatedBy, status) values (?,?,?,?,?,?,?,?,?,?,?)";
+    public static final String PRODUCT_UPDATE = "update products set name = ?, thumbnail = ?, price = ?, categoryId = ?, description = ?, detail = ?, updatedAt = ?, updatedBy = ?, status = ? where id = ?";
     public static final String PRODUCT_DELETE = "update products set status = ? where id = ?";
     public static final String PRODUCT_SELECT_ALL = "select * from products where status = ?";
     public static final String PRODUCT_SELECT_BY_ID = "select * from products where status = ? and id = ?";
@@ -39,6 +39,7 @@ public class SqlConstant {
     public static final String PRODUCT_FIELD_PRICE = "price";
     public static final String PRODUCT_FIELD_CATEGORY_ID = "categoryID";
     public static final String PRODUCT_FIELD_DESCRIPTION = "description";
+    public static final String PRODUCT_FIELD_DETAIL = "detail";
     public static final String PRODUCT_FIELD_STATUS = "status";
 
 

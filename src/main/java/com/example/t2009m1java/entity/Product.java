@@ -1,6 +1,7 @@
 package com.example.t2009m1java.entity;
 
 import com.example.t2009m1java.entity.base.BaseEntity;
+import com.example.t2009m1java.entity.myenum.CategoryStatus;
 import com.example.t2009m1java.entity.myenum.ProductStatus;
 
 import java.time.LocalDateTime;
@@ -13,27 +14,37 @@ public class Product extends BaseEntity {
     private double price;
     private int categoryId;
     private String description;
+    private String detail;
     private ProductStatus status;
 
     public Product() {
+        this.setName("");
+        this.setPrice(0);
+        this.setCreatedAt(LocalDateTime.now());
+        this.setUpdatedAt(LocalDateTime.now());
+        this.setCreatedBy(0);
+        this.setUpdatedBy(0);
+        this.setStatus(ProductStatus.ACTIVE);
     }
 
-    public Product(int id, String name, String thumbnail, double price, int categoryId, String description) {
+    public Product(int id, String name, String thumbnail, double price, int categoryId, String description, String detail) {
         this.id = id;
         this.name = name;
         this.thumbnail = thumbnail;
         this.price = price;
         this.categoryId = categoryId;
         this.description = description;
+        this.detail = detail;
     }
 
-    public Product(int id, String name, String thumbnail, double price, int categoryId, String description, ProductStatus status) {
+    public Product(int id, String name, String thumbnail, double price, int categoryId, String description, String detail, ProductStatus status) {
         this.id = id;
         this.name = name;
         this.thumbnail = thumbnail;
         this.price = price;
         this.categoryId = categoryId;
         this.description = description;
+        this.detail = detail;
         this.status = status;
     }
 
@@ -85,6 +96,14 @@ public class Product extends BaseEntity {
         this.description = description;
     }
 
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
     public ProductStatus getStatus() {
         return status;
     }
@@ -110,6 +129,17 @@ public class Product extends BaseEntity {
         if (description == null || description.length() == 0) {
             errors.put("description", "Please enter thumbnail.");
         }
+        if (detail == null || detail.length() == 0) {
+            errors.put("detail", "Please enter thumbnail.");
+        }
+    }
+
+    public HashMap<String, String> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(HashMap<String, String> errors) {
+        this.errors = errors;
     }
 
 
@@ -120,7 +150,9 @@ public class Product extends BaseEntity {
         private double price;
         private int categoryId;
         private String description;
+        private String detail;
         private ProductStatus status;
+        private HashMap<String, String> errors = new HashMap<>();
         private LocalDateTime createdAt;
         private LocalDateTime updatedAt;
         private LocalDateTime deletedAt;
@@ -129,6 +161,13 @@ public class Product extends BaseEntity {
         private int deletedBy;
 
         private ProductBuilder() {
+            this.name = ("");
+            this.price = (0);
+            this.createdAt = (LocalDateTime.now());
+            this.updatedAt = (LocalDateTime.now());
+            this.createdBy = (0);
+            this.updatedBy = (0);
+            this.status = (ProductStatus.ACTIVE);
         }
 
         public static ProductBuilder aProduct() {
@@ -165,8 +204,18 @@ public class Product extends BaseEntity {
             return this;
         }
 
+        public ProductBuilder withDetail(String detail) {
+            this.detail = detail;
+            return this;
+        }
+
         public ProductBuilder withStatus(ProductStatus status) {
             this.status = status;
+            return this;
+        }
+
+        public ProductBuilder withErrors(HashMap<String, String> errors) {
+            this.errors = errors;
             return this;
         }
 
@@ -208,6 +257,7 @@ public class Product extends BaseEntity {
             product.setPrice(price);
             product.setCategoryId(categoryId);
             product.setDescription(description);
+            product.setDetail(detail);
             product.setStatus(status);
             product.setCreatedAt(createdAt);
             product.setUpdatedAt(updatedAt);
@@ -215,6 +265,7 @@ public class Product extends BaseEntity {
             product.setCreatedBy(createdBy);
             product.setUpdatedBy(updatedBy);
             product.setDeletedBy(deletedBy);
+            product.errors = this.errors;
             return product;
         }
     }

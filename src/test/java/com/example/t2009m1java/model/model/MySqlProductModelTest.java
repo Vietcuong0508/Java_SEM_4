@@ -19,11 +19,12 @@ class MySqlProductModelTest {
     @Test
     void save() {
         Product product = new Product();
-        product.setName("Coca");
+        product.setName("Pepsi");
         product.setThumbnail("a.img");
         product.setPrice(19.99);
-        product.setCategoryId(1);
+        product.setCategoryId(8);
         product.setDescription("Nuoc uong");
+        product.setDetail("Day la phan chi tiet");
         product.setStatus(ProductStatus.ACTIVE);
         model.save(product);
     }

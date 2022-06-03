@@ -1,6 +1,3 @@
-<%@ page import="com.example.t2009m1java.entity.Student" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="com.example.t2009m1java.entity.Account" %><%
     Account account = (Account) request.getAttribute("account");

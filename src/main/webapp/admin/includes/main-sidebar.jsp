@@ -30,14 +30,14 @@
 
                 <ul class="submenu ">
                     <li>
-                        <a href="component-alert.html" class="sidebar-link">
+                        <a href="/admin/products/create" class="sidebar-link">
                             <i data-feather="file-plus" width="20"></i>
                             <span>Tạo mới</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="component-alert.html" class="sidebar-link">
+                        <a href="/admin/products/list" class="sidebar-link">
                             <i data-feather="list" width="20"></i>
                             <span>Danh sách</span>
                         </a>
@@ -54,14 +54,14 @@
 
                 <ul class="submenu ">
                     <li>
-                        <a href="component-alert.html" class="sidebar-link">
+                        <a href="/admin/categories/create" class="sidebar-link">
                             <i data-feather="file-plus" width="20"></i>
                             <span>Tạo mới</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="component-alert.html" class="sidebar-link">
+                        <a href="/admin/categories/list" class="sidebar-link">
                             <i data-feather="list" width="20"></i>
                             <span>Danh sách</span>
                         </a>
