@@ -141,9 +141,6 @@ public class Product extends BaseEntity {
         if (description == null || description.length() == 0) {
             errors.put("description", "Please enter description.");
         }
-        if (detail == null || detail.length() == 0) {
-            errors.put("detail", "Please enter detail.");
-        }
     }
 
     public HashMap<String, String> getErrors() {

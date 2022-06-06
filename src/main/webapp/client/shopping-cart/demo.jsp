@@ -60,9 +60,9 @@
                                                    value="<%=cartItem.getQuantity()%>"></td>
                                         <td><%=nf.format(cartItem.getUnitPrice())%> USD</td>
                                         <td>
-                                            <button class="btn btn-success"><a href="/shopping-cart/add?productId=<%=cartItem.getProductId()%>&quantity=1" style="text-decoration: none; color: black">+</a></button>
-                                            <button class="btn btn-primary"><a href="/shopping-cart/sub?productId=<%=cartItem.getProductId()%>&quantity=1" style="text-decoration: none; color: black">-</a></button>
-                                            <button class="btn btn-danger"><a href="/shopping-cart/remove?productId=<%=cartItem.getProductId()%>" style="text-decoration: none; color: black">x</a></button>
+                                            <button class="btn btn-success"><a href="${pageContext.request.contextPath}/shopping-cart/add?productId=<%=cartItem.getProductId()%>&quantity=1" style="text-decoration: none; color: black">+</a></button>
+                                            <button class="btn btn-primary"><a href="${pageContext.request.contextPath}/shopping-cart/sub?productId=<%=cartItem.getProductId()%>&quantity=1" style="text-decoration: none; color: black">-</a></button>
+                                            <button class="btn btn-danger"><a href="${pageContext.request.contextPath}/shopping-cart/remove?productId=<%=cartItem.getProductId()%>" style="text-decoration: none; color: black">x</a></button>
                                         </td>
                                         <%}%>
                                     </tr>

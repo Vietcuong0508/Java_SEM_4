@@ -47,6 +47,7 @@ public class CreateProductServlet extends HttpServlet {
             String thumbnail = req.getParameter("thumbnail");
             double price = Double.parseDouble(req.getParameter("price"));
             int status = Integer.parseInt(req.getParameter("status"));
+            req.setAttribute("action", 1);
             // Khởi tạo đối tượng account từ thông tin truyền lên.
             Product product = Product.ProductBuilder.aProduct()
                     .withName(name)
