@@ -48,6 +48,18 @@ public class Product extends BaseEntity {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                ", name='" + name + '\'' +
+                ", thumbnail='" + thumbnail + '\'' +
+                ", price=" + price +
+                ", categoryId=" + categoryId +
+                ", description='" + description + '\'' +
+                ", detail='" + detail + '\'' +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
@@ -127,10 +139,10 @@ public class Product extends BaseEntity {
             errors.put("thumbnail", "Please enter thumbnail.");
         }
         if (description == null || description.length() == 0) {
-            errors.put("description", "Please enter thumbnail.");
+            errors.put("description", "Please enter description.");
         }
         if (detail == null || detail.length() == 0) {
-            errors.put("detail", "Please enter thumbnail.");
+            errors.put("detail", "Please enter detail.");
         }
     }
 
