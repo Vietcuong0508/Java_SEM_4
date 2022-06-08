@@ -1,7 +1,7 @@
 package com.example.t2009m1java.model;
 
 import com.example.t2009m1java.entity.User;
-import com.example.t2009m1java.service.util.ConnectionHelper;
+import com.example.t2009m1java.service.ConnectionHelper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

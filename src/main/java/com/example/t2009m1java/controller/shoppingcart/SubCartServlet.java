@@ -4,7 +4,7 @@ import com.example.t2009m1java.entity.Product;
 import com.example.t2009m1java.entity.ShoppingCart;
 import com.example.t2009m1java.model.MySqlProductModel;
 import com.example.t2009m1java.model.ProductModel;
-import com.example.t2009m1java.service.util.ShoppingCartHelper;
+import com.example.t2009m1java.service.ShoppingCartHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

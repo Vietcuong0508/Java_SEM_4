@@ -1,6 +1,6 @@
 package com.example.t2009m1java.model.util;
 
-import com.example.t2009m1java.service.util.StringValidationHelper;
+import com.example.t2009m1java.service.StringValidationHelper;
 import org.junit.jupiter.api.Test;
 
 class StringValidationHelperTest {

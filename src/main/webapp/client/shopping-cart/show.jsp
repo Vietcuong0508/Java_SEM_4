@@ -1,4 +1,4 @@
-<%@ page import="com.example.t2009m1java.service.util.ShoppingCartHelper" %>
+<%@ page import="com.example.t2009m1java.service.ShoppingCartHelper" %>
 <%@ page import="com.example.t2009m1java.entity.ShoppingCart" %>
 <%@ page import="java.util.Locale" %>
 <%@ page import="java.text.NumberFormat" %>

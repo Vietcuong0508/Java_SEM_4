@@ -2,7 +2,6 @@ package com.example.t2009m1java.entity;
 
 import com.example.t2009m1java.entity.base.BaseEntity;
 import com.example.t2009m1java.entity.myenum.CategoryStatus;
-import com.example.t2009m1java.service.util.StringValidationHelper;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;

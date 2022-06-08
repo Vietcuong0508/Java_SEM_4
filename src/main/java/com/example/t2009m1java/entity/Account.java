@@ -2,7 +2,8 @@ package com.example.t2009m1java.entity;
 
 import com.example.t2009m1java.entity.base.BaseEntity;
 import com.example.t2009m1java.entity.myenum.AccountStatus;
-import com.example.t2009m1java.service.util.StringValidationHelper;
+import com.example.t2009m1java.entity.myenum.ProductStatus;
+import com.example.t2009m1java.service.StringValidationHelper;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -14,12 +15,17 @@ public class Account extends BaseEntity {
     private String password;
     private String confirmPassword;
     private String fullName;
+    private int roleId;
     private AccountStatus status; // 1. active, -1. deleted, 0. deactive
 
     public Account() {
         this.email = "";
         this.username = "";
         this.fullName = "";
+        this.setCreatedAt(LocalDateTime.now());
+        this.setUpdatedAt(LocalDateTime.now());
+        this.setCreatedBy(0);
+        this.setUpdatedBy(0);
         this.status = AccountStatus.ACTIVE;
     }
 
@@ -45,8 +51,6 @@ public class Account extends BaseEntity {
                 ", updatedBy=" + getUpdatedBy() + '\'' +
                 '}';
     }
-
-
 
     public String getEmail() {
         return email;
@@ -104,6 +108,14 @@ public class Account extends BaseEntity {
         this.status = status;
     }
 
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
     private HashMap<String, String> errors = new HashMap<>();
 
     public boolean isValid() {
@@ -141,6 +153,7 @@ public class Account extends BaseEntity {
         this.errors = errors;
     }
 
+
     public static final class AccountBuilder {
         private int id;
         private String username;
@@ -148,6 +161,7 @@ public class Account extends BaseEntity {
         private String password;
         private String confirmPassword;
         private String fullName;
+        private int roleId;
         private AccountStatus status; // 1. active, -1. deleted, 0. deactive
         private HashMap<String, String> errors = new HashMap<>();
         private LocalDateTime createdAt;
@@ -155,9 +169,20 @@ public class Account extends BaseEntity {
         private LocalDateTime deletedAt;
         private int createdBy;
         private int updatedBy;
-        private int deleteBy;
+        private int deletedBy;
 
         private AccountBuilder() {
+            this.username = ("");
+            this.email = ("");
+            this.password = ("");
+            this.confirmPassword = ("");
+            this.fullName = ("");
+            this.roleId = 1;
+            this.createdAt = (LocalDateTime.now());
+            this.updatedAt = (LocalDateTime.now());
+            this.createdBy = (0);
+            this.updatedBy = (0);
+            this.status = (AccountStatus.ACTIVE);
         }
 
         public static AccountBuilder anAccount() {
@@ -191,6 +216,11 @@ public class Account extends BaseEntity {
 
         public AccountBuilder withFullName(String fullName) {
             this.fullName = fullName;
+            return this;
+        }
+
+        public AccountBuilder withRoleId(int roleId) {
+            this.roleId = roleId;
             return this;
         }
 
@@ -229,8 +259,8 @@ public class Account extends BaseEntity {
             return this;
         }
 
-        public AccountBuilder withDeleteBy(int deleteBy) {
-            this.deleteBy = deleteBy;
+        public AccountBuilder withDeletedBy(int deletedBy) {
+            this.deletedBy = deletedBy;
             return this;
         }
 
@@ -242,6 +272,7 @@ public class Account extends BaseEntity {
             account.setPassword(password);
             account.setConfirmPassword(confirmPassword);
             account.setFullName(fullName);
+            account.setRoleId(roleId);
             account.setStatus(status);
             account.setErrors(errors);
             account.setCreatedAt(createdAt);
@@ -249,7 +280,7 @@ public class Account extends BaseEntity {
             account.setDeletedAt(deletedAt);
             account.setCreatedBy(createdBy);
             account.setUpdatedBy(updatedBy);
-            account.setDeletedBy(deleteBy);
+            account.setDeletedBy(deletedBy);
             return account;
         }
     }

@@ -84,21 +84,21 @@
                 <div class="header__cart">
 <%--                    @if(\Illuminate\Support\Facades\Auth::check())--%>
                     <div class="dropdown float-right">
-                        <button class="btn dropdown-toggle border-bottom" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-<%--                            <i class="fas fa-user"></i>&ensp;{{\Illuminate\Support\Facades\Auth::user()->fullName}}--%>
-                        </button>
+<%--                        <button class="btn dropdown-toggle border-bottom" type="button" id="dropdownMenuButton"--%>
+<%--                                data-toggle="dropdown"--%>
+<%--                                aria-haspopup="true" aria-expanded="false">--%>
+<%--&lt;%&ndash;                            <i class="fas fa-user"></i>&ensp;{{\Illuminate\Support\Facades\Auth::user()->fullName}}&ndash;%&gt;--%>
+<%--                        </button>--%>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item border-0" href="/shopping/cart"><i
                                     class="fa fa-shopping-bag">
                                 Giỏ hàng</i></a>
-                            <a class="dropdown-item border-0" href="{{route('logout')}}"><i
+                            <a class="dropdown-item border-0" href="/logout"><i
                                     class="fas fa-power-off ic-logout"></i> Đăng xuất</a>
                         </div>
 <%--                        @else--%>
                         <ul>
-                            <li><a href="{{route('login')}}"><i class="fa fa-user">&ensp;Đăng Nhập</i></a></li>
+                            <li><a href="/login"><i class="fa fa-user">&ensp;Đăng Nhập</i></a></li>
                         </ul>
 <%--                        @endif--%>
                     </div>

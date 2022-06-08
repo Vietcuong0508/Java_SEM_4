@@ -1,4 +1,4 @@
-package com.example.t2009m1java.service.util;
+package com.example.t2009m1java.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

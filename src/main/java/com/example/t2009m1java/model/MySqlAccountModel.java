@@ -3,7 +3,7 @@ package com.example.t2009m1java.model;
 import com.example.t2009m1java.constant.SqlConstant;
 import com.example.t2009m1java.entity.Account;
 import com.example.t2009m1java.entity.myenum.AccountStatus;
-import com.example.t2009m1java.service.util.ConnectionHelper;
+import com.example.t2009m1java.service.ConnectionHelper;
 
 import java.sql.*;
 import java.time.LocalDateTime;
